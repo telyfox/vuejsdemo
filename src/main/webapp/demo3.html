@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:keydown</title>
+		<script src="js/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			Vue:<input type="text" v-on:keydown="vuePreventKeyCode($event)">
+			<hr/>
+			原生JS：<input type="text" onkeydown="preventKeyCode()" />
+		</div>
+	</body>
+	<script>
+
+		new Vue({
+			el:"#app",
+			methods:{
+				//$event是vue中的事件对象，与原生js的event对象一样
+				vuePreventKeyCode:function(event){
+					var keyCode = event.keyCode;
+					if(event.keyCode < 48 || event.keyCode > 57){
+						//阻止键盘的按键起作用
+						event.preventDefault();
+					}
+				}
+			}
+		});
+
+		//原生js的键盘按下事件
+		function preventKeyCode() {
+			//$event是vue中的事件对象，与原生js的event对象一样
+			var keyCode = event.keyCode;
+			if(event.keyCode < 48 || event.keyCode > 57){
+				//阻止键盘的按键起作用
+				event.preventDefault();
+			}
+		}
+	</script>
+</html>

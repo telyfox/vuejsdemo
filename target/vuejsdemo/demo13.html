@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>v-if与v-show</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<span v-if="flag">Java</span>
+			<span v-show="flag">Yang Xu</span>
+			<!-- @click是v-on:click的缩写 -->
+			<button @click="toggle">切换</button>
+			<!-- toggle verb -->
+			<!-- to press a key or set of keys on a computer keyboard
+			 in order to turn a feature on or off,
+			 or to move from one program, etc. to another -->
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el:"#app",
+			data:{
+				flag:false
+			},
+			methods:{
+				toggle:function(){
+					this.flag = !this.flag;
+				}
+			}
+		});
+	</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:事件修饰符</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- @submit等同于v-on:submit -->
+			<form @submit.prevent action="https://www.baidu.com" method="post">
+				<input type="submit" value="提交">
+			</form>
+
+<!--			2.在应用验证方法时必须加上 return  方法名称-->
+<!--			<form action="https://www.baidu.com" method="post" onsubmit="return checkForm()">-->
+<!--				<input type="submit" value="提交">-->
+<!--			</form>-->
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el:"#app"
+		});
+
+		//原生JavaScript方式
+		function checkForm(){
+			//1.表单验证必须有一个明确的boolean类型返回值
+			return false;
+		}
+	</script>
+
+</html>

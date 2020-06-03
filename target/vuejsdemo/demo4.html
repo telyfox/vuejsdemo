@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:mouseover</title>
+		<style>
+			#div {
+				background-color: #ff0000;
+				width:300px;
+				height:300px;
+			}
+		</style>
+		<script src="js/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- @事件名称 就是 v-on:事件名称 的简写方式 -->
+			<!-- @mouseover等同于v-on:mouseover -->
+			<div @mouseover="vdivmouseover" id="div">
+				<textarea @mouseover.stop="vtextareamouseover($event)">这是一个文件域</textarea>
+			</div>
+
+<!--			<div onmouseover="divmouseover()" id="div">-->
+<!--				<textarea onmouseover="textareamouseover()">这是一个文件域</textarea>-->
+<!--			</div>-->
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el:"#app",
+			methods:{
+				vdivmouseover:function(){
+					alert("鼠标移动到了div上了");
+				},
+				vtextareamouseover:function(event){
+					alert("鼠标移动到了textarea上了");
+					// event.stopPropagation();
+				}
+			}
+		});
+
+		//原生JavaScript方式
+		function divmouseover(){
+			alert("鼠标移动到div上了");
+		}
+
+		function textareamouseover(){
+			alert("鼠标移动到textarea上了");
+			event.stopPropagation();
+		}
+	</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>v-on:click</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{message}}
+			<!-- 1.绑定v-on:click事件 -->
+			<button v-on:click="func1('Vue v-on')">vue的onclick</button>
+		</div>
+	</body>
+	<script>
+		//2.创建Vue对象
+		new Vue({
+			//3.由Vue接管id为app的区域
+			el:"#app",
+			//4.填写相关的data
+			data:{
+				message:"Hello Vue",
+			},
+			methods:{
+				//5.定义方法
+				func1:function (msg) {
+					alert("Hello");
+					this.message = msg;
+				}
+			}
+		});
+	</script>
+</html> 
